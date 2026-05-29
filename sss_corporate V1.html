@@ -1,0 +1,991 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Silent Star Service — Advanced Research & Development</title>
+  <!-- SSS-HX-001 // PERSONAL JOURNAL // RECOVERED DOCUMENT // INTEGRITY:91%
+  "03.04.2022 — The plans arrived tonight. 47 pages for a building that should need 6,000 minimum.
+  Every surface inclined at precise angles — 7.3 degrees, 12.8 degrees, 23.1 degrees. Golden ratio derivatives.
+  My chief engineer said : this is not architecture. This is music."
+  ASSET STATUS : DECEASED 10.01.2024 // CAUSE : ANEURYSM
+  NOTE : find Santiago. find what is below -40m. find the silver box. -->
+  <!-- SSS-COORD : 32°40'21"N 94°07'41"W // Harrison County TX // THE BUILDING EXISTS. NOBODY MAKES COFFEE IN THE MORNING. -->
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Helvetica+Neue:wght@200;300;400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --white: #f8f8f6;
+      --black: #0a0a0a;
+      --grey-light: #e8e8e4;
+      --grey-mid: #9a9a96;
+      --grey-dark: #2a2a28;
+      --accent: #1a3a6a;
+      --accent-light: #2d5a9e;
+    }
+
+    * { margin:0; padding:0; box-sizing:border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--white);
+      color: var(--black);
+      font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+      font-weight: 300;
+      overflow-x: hidden;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 60px;
+      background: rgba(248,248,246,0.92);
+      backdrop-filter: blur(20px);
+      border-bottom: 1px solid rgba(0,0,0,0.06);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+      color: var(--black);
+    }
+
+    .nav-logo svg {
+      width: 36px;
+      height: 36px;
+    }
+
+    .nav-brand {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      font-weight: 400;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 40px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--grey-mid);
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover { color: var(--black); }
+
+    /* HERO */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      padding: 120px 40px 80px;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: 
+        radial-gradient(ellipse 80% 60% at 50% 40%, rgba(26,58,106,0.06) 0%, transparent 70%),
+        radial-gradient(ellipse 40% 40% at 20% 80%, rgba(26,58,106,0.04) 0%, transparent 60%);
+    }
+
+    .hero-eyebrow {
+      font-size: 11px;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--grey-mid);
+      margin-bottom: 40px;
+      animation: fadeUp 1.2s ease both;
+    }
+
+    .hero-logo-large {
+      width: 100px;
+      height: 100px;
+      margin-bottom: 48px;
+      animation: fadeUp 1.2s ease 0.1s both;
+      opacity: 0.85;
+    }
+
+    .hero-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(42px, 7vw, 86px);
+      font-weight: 300;
+      line-height: 1.05;
+      letter-spacing: -0.01em;
+      color: var(--black);
+      max-width: 800px;
+      margin-bottom: 32px;
+      animation: fadeUp 1.2s ease 0.2s both;
+    }
+
+    .hero-title em {
+      font-style: italic;
+      color: var(--accent);
+    }
+
+    .hero-sub {
+      font-size: 15px;
+      color: var(--grey-mid);
+      letter-spacing: 0.05em;
+      max-width: 480px;
+      line-height: 1.8;
+      margin-bottom: 60px;
+      animation: fadeUp 1.2s ease 0.3s both;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 20px;
+      animation: fadeUp 1.2s ease 0.4s both;
+    }
+
+    .btn-primary {
+      padding: 14px 36px;
+      background: var(--black);
+      color: var(--white);
+      text-decoration: none;
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      transition: all 0.3s;
+    }
+
+    .btn-primary:hover {
+      background: var(--accent);
+    }
+
+    .btn-ghost {
+      padding: 14px 36px;
+      border: 1px solid rgba(0,0,0,0.2);
+      color: var(--black);
+      text-decoration: none;
+      font-size: 12px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      transition: all 0.3s;
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--black);
+    }
+
+    .hero-scroll {
+      position: absolute;
+      bottom: 40px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      animation: fadeIn 2s ease 1s both;
+    }
+
+    .hero-scroll span {
+      font-size: 10px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--grey-mid);
+    }
+
+    .scroll-line {
+      width: 1px;
+      height: 40px;
+      background: linear-gradient(to bottom, var(--grey-mid), transparent);
+      animation: scrollPulse 2s ease-in-out infinite;
+    }
+
+    /* STATS BAR */
+    .stats-bar {
+      background: var(--black);
+      color: var(--white);
+      padding: 40px 60px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 40px;
+      text-align: center;
+    }
+
+    .stat-item {}
+
+    .stat-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 42px;
+      font-weight: 300;
+      color: var(--white);
+      display: block;
+      letter-spacing: -0.02em;
+    }
+
+    .stat-label {
+      font-size: 10px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      margin-top: 6px;
+      display: block;
+    }
+
+    /* SECTION BASE */
+    section {
+      padding: 120px 60px;
+    }
+
+    .section-eyebrow {
+      font-size: 10px;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    .section-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(32px, 4vw, 52px);
+      font-weight: 300;
+      line-height: 1.1;
+      color: var(--black);
+      max-width: 600px;
+      margin-bottom: 24px;
+    }
+
+    .section-body {
+      font-size: 15px;
+      color: var(--grey-mid);
+      line-height: 1.9;
+      max-width: 520px;
+    }
+
+    /* ABOUT */
+    .about {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 100px;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .about-visual {
+      position: relative;
+      aspect-ratio: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .about-ring {
+      position: absolute;
+      border-radius: 50%;
+      border: 1px solid rgba(26,58,106,0.15);
+      animation: ringPulse 4s ease-in-out infinite;
+    }
+
+    .about-ring:nth-child(1) { width: 100%; height: 100%; animation-delay: 0s; }
+    .about-ring:nth-child(2) { width: 75%; height: 75%; animation-delay: 0.5s; }
+    .about-ring:nth-child(3) { width: 50%; height: 50%; animation-delay: 1s; }
+
+    .about-center {
+      width: 120px;
+      height: 120px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .about-founded {
+      margin-top: 40px;
+      padding-top: 40px;
+      border-top: 1px solid var(--grey-light);
+    }
+
+    .about-founded-label {
+      font-size: 10px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: var(--grey-mid);
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .about-founded-date {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      color: var(--black);
+    }
+
+    /* RESEARCH */
+    .research-section {
+      background: var(--grey-dark);
+      color: var(--white);
+    }
+
+    .research-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      margin-top: 80px;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .research-card {
+      background: rgba(255,255,255,0.03);
+      padding: 48px 40px;
+      border: 1px solid rgba(255,255,255,0.06);
+      transition: all 0.4s;
+      cursor: default;
+    }
+
+    .research-card:hover {
+      background: rgba(255,255,255,0.07);
+    }
+
+    .research-icon {
+      width: 40px;
+      height: 40px;
+      margin-bottom: 32px;
+      opacity: 0.5;
+    }
+
+    .research-card-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 22px;
+      font-weight: 400;
+      color: var(--white);
+      margin-bottom: 16px;
+      letter-spacing: 0.02em;
+    }
+
+    .research-card-body {
+      font-size: 13px;
+      color: rgba(255,255,255,0.4);
+      line-height: 1.8;
+    }
+
+    .research-card-tag {
+      display: inline-block;
+      margin-top: 24px;
+      font-size: 10px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.2);
+      border: 1px solid rgba(255,255,255,0.1);
+      padding: 6px 14px;
+    }
+
+    .research-section .section-title {
+      color: var(--white);
+    }
+
+    .research-section .section-body {
+      color: rgba(255,255,255,0.4);
+    }
+
+    .research-section .section-eyebrow {
+      color: rgba(255,255,255,0.3);
+    }
+
+    .research-header {
+      max-width: 1200px;
+      margin: 0 auto 0;
+    }
+
+    /* PRESS */
+    .press-section {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .press-items {
+      margin-top: 80px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .press-item {
+      display: grid;
+      grid-template-columns: 160px 1fr 120px;
+      gap: 40px;
+      align-items: start;
+      padding: 40px 0;
+      border-bottom: 1px solid var(--grey-light);
+    }
+
+    .press-date {
+      font-size: 12px;
+      letter-spacing: 0.1em;
+      color: var(--grey-mid);
+      padding-top: 4px;
+    }
+
+    .press-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      font-weight: 400;
+      color: var(--black);
+      line-height: 1.3;
+      margin-bottom: 10px;
+    }
+
+    .press-source {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--grey-mid);
+    }
+
+    .press-tag {
+      font-size: 10px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--grey-mid);
+      border: 1px solid var(--grey-light);
+      padding: 6px 12px;
+      text-align: center;
+      align-self: start;
+    }
+
+    /* LEADERSHIP */
+    .leadership-section {
+      background: #f0f0ec;
+    }
+
+    .leadership-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 40px;
+      margin-top: 80px;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .leader-card {
+      text-align: center;
+    }
+
+    .leader-avatar {
+      width: 100%;
+      aspect-ratio: 1;
+      background: var(--grey-light);
+      margin-bottom: 24px;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .leader-avatar::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(26,58,106,0.1), transparent);
+    }
+
+    .leader-silhouette {
+      width: 60%;
+      height: 60%;
+      opacity: 0.15;
+    }
+
+    .leader-name {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 18px;
+      font-weight: 400;
+      color: var(--black);
+      margin-bottom: 6px;
+    }
+
+    .leader-title {
+      font-size: 11px;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--grey-mid);
+    }
+
+    .leadership-header {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* DISCLAIMER */
+    .disclaimer {
+      background: var(--black);
+      color: rgba(255,255,255,0.15);
+      padding: 20px 60px;
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      text-align: center;
+      line-height: 2;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--black);
+      color: var(--white);
+      padding: 80px 60px 40px;
+      border-top: 1px solid rgba(255,255,255,0.05);
+    }
+
+    .footer-top {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 60px;
+      margin-bottom: 60px;
+    }
+
+    .footer-brand {}
+
+    .footer-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 20px;
+    }
+
+    .footer-tagline {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 16px;
+      font-style: italic;
+      color: rgba(255,255,255,0.4);
+      line-height: 1.6;
+      max-width: 280px;
+    }
+
+    .footer-col-title {
+      font-size: 10px;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      margin-bottom: 24px;
+    }
+
+    .footer-links {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .footer-links a {
+      text-decoration: none;
+      color: rgba(255,255,255,0.4);
+      font-size: 13px;
+      transition: color 0.3s;
+    }
+
+    .footer-links a:hover { color: var(--white); }
+
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 40px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .footer-copy {
+      font-size: 11px;
+      color: rgba(255,255,255,0.2);
+      letter-spacing: 0.1em;
+    }
+
+    .footer-address {
+      font-size: 11px;
+      color: rgba(255,255,255,0.15);
+      letter-spacing: 0.1em;
+      text-align: right;
+      line-height: 1.6;
+    }
+
+    /* ANOMALY — subtle wrong detail */
+    .anomaly {
+      font-size: 9px;
+      color: rgba(255,255,255,0.04);
+      letter-spacing: 0.05em;
+    }
+
+    /* ANIMATIONS */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes ringPulse {
+      0%, 100% { opacity: 0.15; transform: scale(1); }
+      50% { opacity: 0.3; transform: scale(1.02); }
+    }
+
+    @keyframes scrollPulse {
+      0%, 100% { opacity: 0.3; transform: scaleY(1); }
+      50% { opacity: 0.8; transform: scaleY(1.1); }
+    }
+
+    /* LOGO SVG */
+    .logo-svg {
+      display: block;
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">
+    <svg class="logo-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="50" cy="50" r="46" stroke="#0a0a0a" stroke-width="1.2"/>
+      <polygon points="50,14 86,72 14,72" stroke="#0a0a0a" stroke-width="1.2" fill="none"/>
+      <circle cx="50" cy="54" r="16" stroke="#0a0a0a" stroke-width="1"/>
+      <circle cx="50" cy="54" r="10" stroke="#0a0a0a" stroke-width="0.8"/>
+      <circle cx="50" cy="54" r="4" stroke="#0a0a0a" stroke-width="0.8"/>
+      <circle cx="50" cy="54" r="1.5" fill="#0a0a0a"/>
+      <line x1="4" y1="72" x2="14" y2="72" stroke="#0a0a0a" stroke-width="1"/>
+      <line x1="86" y1="72" x2="96" y2="72" stroke="#0a0a0a" stroke-width="1"/>
+      <line x1="2" y1="76" x2="12" y2="76" stroke="#0a0a0a" stroke-width="0.6" opacity="0.4"/>
+      <line x1="88" y1="76" x2="98" y2="76" stroke="#0a0a0a" stroke-width="0.6" opacity="0.4"/>
+    </svg>
+    <span class="nav-brand">Silent Star Service</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#press">Press</a></li>
+    <li><a href="#leadership">Leadership</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <span class="hero-eyebrow">Est. 2019 — Advanced Research & Development</span>
+  <svg class="hero-logo-large logo-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="50" cy="50" r="46" stroke="#1a3a6a" stroke-width="0.8"/>
+    <circle cx="50" cy="50" r="38" stroke="#1a3a6a" stroke-width="0.5" opacity="0.4"/>
+    <polygon points="50,14 86,72 14,72" stroke="#1a3a6a" stroke-width="0.9" fill="none"/>
+    <circle cx="50" cy="54" r="16" stroke="#1a3a6a" stroke-width="0.8"/>
+    <circle cx="50" cy="54" r="10" stroke="#1a3a6a" stroke-width="0.7"/>
+    <circle cx="50" cy="54" r="4" stroke="#1a3a6a" stroke-width="0.7"/>
+    <circle cx="50" cy="54" r="1.5" fill="#1a3a6a"/>
+    <line x1="4" y1="72" x2="14" y2="72" stroke="#1a3a6a" stroke-width="0.8"/>
+    <line x1="86" y1="72" x2="96" y2="72" stroke="#1a3a6a" stroke-width="0.8"/>
+    <line x1="2" y1="76" x2="12" y2="76" stroke="#1a3a6a" stroke-width="0.5" opacity="0.3"/>
+    <line x1="88" y1="76" x2="98" y2="76" stroke="#1a3a6a" stroke-width="0.5" opacity="0.3"/>
+  </svg>
+  <h1 class="hero-title">We didn't invent<br>the future.<br><em>We received it.</em></h1>
+  <p class="hero-sub">Silent Star Service pioneers the convergence of quantum signal research and deep space communication technology.</p>
+  <div class="hero-cta">
+    <a href="#research" class="btn-primary">Our Research</a>
+    <a href="#about" class="btn-ghost">Learn More</a>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stat-item">
+    <span class="stat-number">$400B</span>
+    <span class="stat-label">Research Budget Allocated</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-number">[REDACTED]</span>
+    <span class="stat-label">Government Partners</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-number">4.5Bn</span>
+    <span class="stat-label">Years of Signal Data Analyzed</span>
+  </div>
+  <div class="stat-item">
+    <span class="stat-number">∞</span>
+    <span class="stat-label">Operational Timeline</span>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="about">
+    <div class="about-visual">
+      <div class="about-ring"></div>
+      <div class="about-ring"></div>
+      <div class="about-ring"></div>
+      <svg class="about-center logo-svg" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="50" cy="50" r="46" stroke="#1a3a6a" stroke-width="1"/>
+        <polygon points="50,14 86,72 14,72" stroke="#1a3a6a" stroke-width="1" fill="none"/>
+        <circle cx="50" cy="54" r="16" stroke="#1a3a6a" stroke-width="0.9"/>
+        <circle cx="50" cy="54" r="10" stroke="#1a3a6a" stroke-width="0.8"/>
+        <circle cx="50" cy="54" r="4" stroke="#1a3a6a" stroke-width="0.8"/>
+        <circle cx="50" cy="54" r="1.5" fill="#1a3a6a"/>
+        <line x1="4" y1="72" x2="14" y2="72" stroke="#1a3a6a" stroke-width="0.9"/>
+        <line x1="86" y1="72" x2="96" y2="72" stroke="#1a3a6a" stroke-width="0.9"/>
+      </svg>
+    </div>
+    <div class="about-content">
+      <span class="section-eyebrow">About</span>
+      <h2 class="section-title">A mission beyond the boundaries of conventional science.</h2>
+      <p class="section-body">Silent Star Service operates at the intersection of quantum physics, deep space research, and advanced signal processing. Our work addresses questions that traditional institutions are not yet equipped to ask.<br><br>We do not publish our methodologies. We do not confirm our partnerships. We do not discuss our timeline.</p>
+      <div class="about-founded">
+        <span class="about-founded-label">Founded</span>
+        <span class="about-founded-date">2024</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESEARCH -->
+<section id="research" class="research-section">
+  <div class="research-header">
+    <span class="section-eyebrow">Research Divisions</span>
+    <h2 class="section-title">Where the signal ends,<br>our work begins.</h2>
+    <p class="section-body">Three active research divisions. All classified at varying levels. Summaries available upon verified clearance request.</p>
+  </div>
+  <div class="research-grid">
+    <div class="research-card">
+      <svg class="research-icon" viewBox="0 0 40 40" fill="none">
+        <circle cx="20" cy="20" r="18" stroke="white" stroke-width="0.8"/>
+        <circle cx="20" cy="20" r="10" stroke="white" stroke-width="0.6"/>
+        <circle cx="20" cy="20" r="3" fill="white" opacity="0.4"/>
+      </svg>
+      <div class="research-card-title">Quantum Signal Processing</div>
+      <div class="research-card-body">Analysis of non-standard radio frequencies originating from sources beyond the heliosphere. 47 anomalous signals catalogued since [REDACTED].</div>
+      <span class="research-card-tag">Division 01 — Active</span>
+    </div>
+    <div class="research-card">
+      <svg class="research-icon" viewBox="0 0 40 40" fill="none">
+        <polygon points="20,4 36,32 4,32" stroke="white" stroke-width="0.8" fill="none"/>
+        <line x1="20" y1="14" x2="20" y2="24" stroke="white" stroke-width="0.6"/>
+        <circle cx="20" cy="26" r="1.5" fill="white" opacity="0.4"/>
+      </svg>
+      <div class="research-card-title">Tachyonic Communication</div>
+      <div class="research-card-body">Theoretical and applied research into faster-than-light information transfer. Current models suggest viability within [REDACTED] parameters.</div>
+      <span class="research-card-tag">Division 02 — Classified</span>
+    </div>
+    <div class="research-card">
+      <svg class="research-icon" viewBox="0 0 40 40" fill="none">
+        <rect x="8" y="8" width="24" height="24" stroke="white" stroke-width="0.8" fill="none"/>
+        <rect x="14" y="14" width="12" height="12" stroke="white" stroke-width="0.6" fill="none"/>
+        <rect x="18" y="18" width="4" height="4" fill="white" opacity="0.3"/>
+      </svg>
+      <div class="research-card-title">Xenomorphic Material Analysis</div>
+      <div class="research-card-body">Study of non-terrestrial alloys and crystalline structures recovered from [REDACTED] sites. Properties defy known physical models.</div>
+      <span class="research-card-tag">Division 03 — Restricted</span>
+    </div>
+  </div>
+</section>
+
+<!-- PRESS -->
+<section id="press" style="padding: 120px 60px;">
+  <div class="press-section">
+    <span class="section-eyebrow">Press & Publications</span>
+    <h2 class="section-title">Selected communications.</h2>
+    <div class="press-items">
+      <div class="press-item">
+        <span class="press-date">March 2023</span>
+        <div>
+          <div class="press-title">Silent Star Service announces breakthrough in quantum signal relay infrastructure</div>
+          <div class="press-source">Internal Communiqué — Distribution: [REDACTED]</div>
+        </div>
+        <span class="press-tag">Confidential</span>
+      </div>
+      <div class="press-item">
+        <span class="press-date">November 2022</span>
+        <div>
+          <div class="press-title">First successful long-range tachyonic pulse detected — verification ongoing</div>
+          <div class="press-source">Research Summary — Classification Level 3</div>
+        </div>
+        <span class="press-tag">Restricted</span>
+      </div>
+      <div class="press-item">
+        <span class="press-date">2019</span>
+        <div>
+          <div class="press-title">Founding charter and initial directive framework — [DOCUMENT PARTIALLY UNAVAILABLE]</div>
+          <div class="press-source">Origin Document — Ref: SSS-000-ALPHA</div>
+        </div>
+        <span class="press-tag">[REDACTED]</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEADERSHIP -->
+<section id="leadership" class="leadership-section" style="padding: 120px 60px;">
+  <div class="leadership-header">
+    <span class="section-eyebrow">Leadership</span>
+    <h2 class="section-title">Those who guide the mission.</h2>
+    <p class="section-body">Our leadership team operates under a strict confidentiality protocol. Names and biographical details are withheld in accordance with our founding charter.</p>
+  </div>
+  <div class="leadership-grid">
+    <div class="leader-card">
+      <div class="leader-avatar">
+        <svg class="leader-silhouette" viewBox="0 0 100 100" fill="none">
+          <circle cx="50" cy="32" r="18" stroke="#1a3a6a" stroke-width="1.5"/>
+          <path d="M15 90 C15 65 85 65 85 90" stroke="#1a3a6a" stroke-width="1.5" fill="none"/>
+        </svg>
+      </div>
+      <div class="leader-name">[REDACTED]</div>
+      <div class="leader-title">Chief Executive Officer</div>
+    </div>
+    <div class="leader-card">
+      <div class="leader-avatar">
+        <svg class="leader-silhouette" viewBox="0 0 100 100" fill="none">
+          <circle cx="50" cy="32" r="18" stroke="#1a3a6a" stroke-width="1.5"/>
+          <path d="M15 90 C15 65 85 65 85 90" stroke="#1a3a6a" stroke-width="1.5" fill="none"/>
+        </svg>
+      </div>
+      <div class="leader-name">[REDACTED]</div>
+      <div class="leader-title">Chief Science Officer</div>
+    </div>
+    <div class="leader-card">
+      <div class="leader-avatar">
+        <svg class="leader-silhouette" viewBox="0 0 100 100" fill="none">
+          <circle cx="50" cy="32" r="18" stroke="#1a3a6a" stroke-width="1.5"/>
+          <path d="M15 90 C15 65 85 65 85 90" stroke="#1a3a6a" stroke-width="1.5" fill="none"/>
+        </svg>
+      </div>
+      <div class="leader-name">[REDACTED]</div>
+      <div class="leader-title">Director of Signal Intelligence</div>
+    </div>
+    <div class="leader-card">
+      <div class="leader-avatar">
+        <svg class="leader-silhouette" viewBox="0 0 100 100" fill="none">
+          <circle cx="50" cy="32" r="18" stroke="#1a3a6a" stroke-width="1.5"/>
+          <path d="M15 90 C15 65 85 65 85 90" stroke="#1a3a6a" stroke-width="1.5" fill="none"/>
+        </svg>
+      </div>
+      <div class="leader-name">[REDACTED]</div>
+      <div class="leader-title">Chief Strategic Officer</div>
+    </div>
+  </div>
+</section>
+
+<!-- DISCLAIMER ANOMALIE -->
+<div class="disclaimer">
+  Silent Star Service operates under international research charter SSS-XAOS-2019-∞ &nbsp;|&nbsp; All research data remains property of Silent Star Service and its [REDACTED] partners &nbsp;|&nbsp; Unauthorized access to our signal archives is monitored and logged &nbsp;|&nbsp; <span class="anomaly">DOYESHA_ARCHIVE_NODE_ACTIVE // 48°37'25"N 7°25'38"E // SIGNAL_INTEGRITY:100%</span>
+</div>
+
+<!-- LAYER 2 — INVISIBLE TEXT — SELECT ALL TO READ -->
+<div style="background:#f8f8f6; color:#f8f8f6; font-size:9px; padding:20px 60px; line-height:1.8; user-select:text;">
+SSS-HX-001 // CARNET PERSONNEL MR X // PAGES 23-31 // DOCUMENT RÉCUPÉRÉ //
+"14.09.2022 — Les ouvriers ne veulent plus travailler sur la façade ouest après 17h00.
+La façade ouest fait quelque chose avec la lumière. Les angles réfractent le soleil couchant d'une façon qui n'est pas normale.
+Mon chef de chantier Ramirez m'a dit ce soir : Patron, ce bâtiment... il chante.
+Le soir. Quand le vent vient du lac. Les angles créent des harmoniques. On ne les entend pas vraiment. On les sent. Dans la poitrine. Comme devant une grande cathédrale.
+J'ai passé la soirée seul devant la façade ouest. Il avait raison. Ce bâtiment chante.
+Et quelque chose dans ce chant me dit que ce n'est pas conçu pour des humains qui travaillent à l'intérieur.
+C'est conçu pour être entendu. Par quelque chose d'autre. De très loin."
+// NOTE ANALYSTE : RAMIREZ DECEASED 07.01.2024 — ANEURYSM — AGE 47 — TRIATHLETE — NO PRIOR CONDITIONS //
+"01.11.2022 — L'aile souterraine à -40 mètres est terminée. Je n'y suis pas descendu.
+Au centre exact de la structure — point géométrique parfait — une chambre circulaire. 12 mètres de diamètre.
+Pas de ventilation. Pas de câblage. Pas d'accès secondaire. Juste les murs. Et un socle.
+Le socle a exactement les dimensions d'une des boîtes argentées de l'Entrepôt 7.
+Ce bâtiment n'est pas un siège social. C'est un temple.
+Et la machine au sous-sol n'est pas une machine. C'est un autel."
+// DERNIÈRE ENTRÉE : 09.01.2024 — "Bonne—" //
+// ASSET DECEASED : 10.01.2024 // LA BOÎTE ARGENTÉE N'A JAMAIS ÉTÉ RETROUVÉE //
+// CHERCHEZ SANTIAGO //
+</div>
+
+<!-- FOOTER -->
+<footer id="contact">
+  <div class="footer-top">
+    <div class="footer-brand">
+      <div class="footer-logo">
+        <svg width="28" height="28" viewBox="0 0 100 100" fill="none">
+          <circle cx="50" cy="50" r="46" stroke="white" stroke-width="1" opacity="0.4"/>
+          <polygon points="50,14 86,72 14,72" stroke="white" stroke-width="1" fill="none" opacity="0.4"/>
+          <circle cx="50" cy="54" r="10" stroke="white" stroke-width="0.8" opacity="0.3"/>
+          <circle cx="50" cy="54" r="1.5" fill="white" opacity="0.4"/>
+        </svg>
+        <span style="font-family:'Cormorant Garamond',serif; font-size:16px; letter-spacing:0.15em; text-transform:uppercase; opacity:0.6;">Silent Star Service</span>
+      </div>
+      <p class="footer-tagline">"We didn't invent the future.<br>We received it."</p>
+    </div>
+    <div>
+      <div class="footer-col-title">Company</div>
+      <ul class="footer-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#leadership">Leadership</a></li>
+        <li><a href="#press">Press</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Research</div>
+      <ul class="footer-links">
+        <li><a href="#">Division 01</a></li>
+        <li><a href="#">Division 02</a></li>
+        <li><a href="#">Division 03</a></li>
+        <li><a href="#">Publications</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-col-title">Contact</div>
+      <ul class="footer-links">
+        <li><a href="#">Clearance Request</a></li>
+        <li><a href="#">Media Inquiries</a></li>
+        <li><a href="#">[REDACTED]@sss.org</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">© 2024 Silent Star Service. All rights reserved. Est. 2019.</span>
+    <div class="footer-address">
+      Silent Star Service Global HQ<br>
+      [REDACTED] Research Boulevard, Harrison County, Texas<br>
+      <span style="opacity:0.5; font-size:10px;">32°40'21"N 94°07'41"W</span>
+    </div>
+  </div>
+</footer>
+
+<!-- LAYER 3 — FOR THOSE WHO READ THIS FAR —
+THE BUILDING AT 32°40'21"N 94°07'41"W EXISTS.
+NOBODY ANSWERS THE PHONE.
+NOBODY ANSWERS THE EMAILS.
+THE LIGHTS TURN ON AT NIGHT ON A TIMER.
+THE LAWN IS MAINTAINED BY [REDACTED].
+THE DOOR HAS NEVER BEEN OPENED FROM THE INSIDE.
+
+"Ce bâtiment chante. Conçu pour être entendu par quelque chose d'autre. De très loin."
+— MR X // 14.09.2022 // DECEASED 10.01.2024
+
+IF YOU FOUND THIS : look for Santiago.
+IF YOU FOUND THIS : the tachyonic terminal is -40m below ground level.
+IF YOU FOUND THIS : DOYESHA has been watching since 2024.
+IF YOU FOUND THIS : THE SUN IS FOREVER.
+
+// END TRANSMISSION //
+// SILENT STAR SERVICE // SSS-XAOS-∞ //
+-->
+
+</body>
+</html>
